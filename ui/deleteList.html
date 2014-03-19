@@ -1,0 +1,8 @@
+<form action="{{ @BASE }}/list/{{ @listid }}/delete" method="post">
+	<input type="hidden" name="confirm" value="OK" />
+	<p>Do you really want to delete the list "{{ @listname }}"?</p>
+	<p>
+		<a class="fakebutton" href="{{ @BASE . @ALIASES.root }}">No</a>
+		<button type="submit">Yes</button>
+	</p>
+</form>

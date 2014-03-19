@@ -1,0 +1,6 @@
+<form action="{{ @BASE . @ALIASES.delete_acc }}" method="post">
+	<input type="hidden" name="confirm" value="OK" />
+	<p>Do you really want to delete your account?</p>
+	<p><a href="{{ @BASE . @ALIASES.root }}">No</a></p>
+	<p><input type="submit" value="Yes" /></p>
+</form>

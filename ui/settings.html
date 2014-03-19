@@ -1,0 +1,8 @@
+<h1>Account Settings</h1>
+
+<form action="{{ @BASE . @ALIASES.settings }}" method="post" class="tabform">
+	<p><label for="accset_mail">New E-Mail Address:</label> <input id="accset_mail" type="text" name="email" value="{{ @email }}" /></p>
+	<p><label for="accset_newpw">New Password:</label> <input id="accset_newpw" type="password" name="password" /></p>
+	<p><label for="accset_repeatpw">Retype Password:</label> <input id="accset_repeatpw"type="password" name="repeatPassword" /></p>
+	<p class="formctrl"><input type="submit" /></p>
+</form>

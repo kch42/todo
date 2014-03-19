@@ -1,0 +1,8 @@
+<h1>Login</h1>
+
+<form action="{{ @BASE . @ALIASES.login }}" method="post" class="tabform">
+	<p><label for="login_name">User:</label> <input id="login_name" type="text" name="name" value="" /></p>
+	<p><label for="login_pass">Password:</label> <input id="login_pass" type="password" name="password" /></p>
+	<p class="formctrl"><input type="submit" /></p>
+</form>
+<p><a href="{{ @BASE . @ALIASES.resetpw }}">Forgot Password?</a> | <a href="{{ @BASE . @ALIASES.register }}">Register a new account</a></p>

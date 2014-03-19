@@ -1,0 +1,10 @@
+<h1>Register</h1>
+
+<form action="{{ @BASE . @ALIASES.register }}" method="post" class="tabform">
+	<p><label for="reg_name">Name:</label> <input id="reg_name" type="text" name="name" value="" /></p>
+	<p><label for="reg_mail">E-Mail:</label> <input id="reg_mail" type="text" name="email" value="" /></p>
+	<p><label for="reg_pass">Password:</label> <input id="reg_pass" type="password" name="password" /></p>
+	<p><label for="reg_repeat">Repeat Password:</label> <input id="reg_repeat" type="password" name="repeatPassword" /></p>
+	<p class="formctrl"><input type="submit" /></p>
+</form>
+<p>Already have an account? Go to <a href="{{ @BASE . @ALIASES.login }}">Login</a>.</p>

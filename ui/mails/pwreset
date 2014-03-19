@@ -1,0 +1,11 @@
+Hi, {{ @username }}!
+
+You have requested a password reset four your account on
+{{ @appname }}.
+
+To reset you password, use this URL:
+
+{{  @reseturl }}
+
+If you did NOT request a password reset, you can simply ignore this
+email.

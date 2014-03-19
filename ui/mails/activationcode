@@ -1,0 +1,6 @@
+Hi, {{ @username }}!
+
+You have registered an account for {{ @appname }}.
+To activate the account, visit this URL:
+
+{{ @activationurl }}

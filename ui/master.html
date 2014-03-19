@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Todo</title>
+	<link rel="stylesheet" type="text/css" href="{{ @BASE }}/ui/style.css" />
+</head>
+<body>
+	<div id="headerwrap"><div id="header">
+		<a href="{{ @BASE . @ALIASES.root }}" id="appname">{{ @appname }}</a>
+		<span id="userinfo">
+			<check if="{{ empty(@user) }}">
+				<true>
+					<a href="{{ @BASE . @ALIASES.login }}">Login</a>
+				</true>
+				<false>
+					Logged in as <span class="username">{{ @user }}</span>.
+					<a href="{{ @BASE . @ALIASES.settings }}">Settings</a>
+					<a href="{{ @BASE . @ALIASES.logout }}">Logout</a>
+				</false>
+			</check>
+		</span>
+	</div></div>
+	
+	<div class="bghelp"></div>
+	<div id="lists">
+		<check if="{{ !empty(@user) }}">
+			<ul>
+				<check if="{{ !empty(@lists) }}">
+					<true>
+						<repeat group="{{ @lists }}" value="{{ @l }}">
+							<li{{ @l.active ? ' class="active"' : '' }}>
+								<a href="{{ @BASE . '/list/' . @l.id }}" class="listlink">{{ @l.name }}</a>
+								<a class="deletelist" href="{{ @BASE . '/list/' . @l.id }}/delete" title="delete">X</a>
+							</li>
+						</repeat>
+					</true>
+					<false>
+						<li class="empty">No lists here. Why not add one below?</li>
+					</false>
+				</check>
+			</ul>
+			
+			<form id="addlist" action="{{ @BASE . @ALIASES.newlist }}" method="post">
+				<input type="text" name="listname" /><button type="submit">+</button>
+			</form>
+		</check>
+	</div>
+	
+	<div id="content">
+		<check if="{{ !empty(@success) }}">
+			<div class="success notify"><span class="icon"></span>{{ @success }}</div>
+		</check>
+		<check if="{{ !empty(@error) }}">
+			<div class="error notify"><span class="icon"></span>{{ @error }}</div>
+		</check>
+		<check if="{{ !empty(@info) }}">
+			<div class="info notify"><span class="icon"></span>{{ @info }}</div>
+		</check>
+		
+		<include href="{{ @content }}" />
+	</div>
+</body>
+</html>

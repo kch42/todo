@@ -1,0 +1,46 @@
+<set myurl="{{ @BASE . '/list/' . @listid }}" />
+<form action="{{ @myurl }}" method="post">
+	<h1>
+		<input type="hidden" name="action" value="setname" />
+		<input type="text" name="name" value="{{ @listname }}" class="listname" />
+		<button type="submit" title="Set name">✓</button>
+	</h1>
+</form>
+
+<check if="{{ empty(@listdata) }}">
+	<true><div class="empty">List is empty</div></true>
+	<false>
+		<ul class="todolist">
+			<repeat group="{{ @listdata }}" value="{{ @it }}">
+				<li{{ @it.checked ? ' class="checked"' : '' }}>
+					<form action="{{ @myurl }}" method="post">
+						<input type="hidden" name="checked" value="{{ @it.checked ? 'n' : 'y' }}" />
+						<button type="submit" name="action" value="setchecked" class="chkbtn {{ @it.checked ? 'checked' : '' }}"><input type="checkbox" name="checked_now" disabled="disabled" {{ @it.checked ? 'checked="checked"' : '' }} value="y" /></button>
+						
+						<span class="txt">{{ @it.text }}</span>
+						
+						<input type="hidden" name="id" value="{{ @it.id }}" />
+						<span class="btncluster">
+							<button type="submit" name="action" value="moveup" title="Move up">↑</button>
+							<button type="submit" name="action" value="movedown" title="Move down">↓</button>
+							<button type="submit" name="action" value="delitem" title="Delete">X</button>
+						</span>
+					</form>
+				</li>
+			</repeat>
+		</ul>
+		<div class="delchecked">
+			<form action="{{ @myurl }}" method="post">
+				<button type="submit" name="action" value="delchecked">Delete checked items</button>
+			</form>
+		</div>
+	</false>
+</check>
+
+<div class="additem">
+	<form action="{{ @myurl }}/" method="post">
+		<input type="hidden" name="action" value="additem" />
+		<input type="text" name="itemtext" />
+		<button type="submit" title="Add item">+</button>
+	</form>
+</div>
