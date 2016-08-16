@@ -32,7 +32,3 @@ Todo is configured with the `config.ini` file.
 It is usually a bad idea that the config file is accessible via the web, since people can then see the username and password of your database.
 
 One possibility to prevent this, is to move the file into a directory that can not be accessed via the web and then modifying `index.php`: Search for the line `$f3->config('config.ini');` and change the `config.ini` part to point to the new location.
-
-## Or just use my public installation
-
-[todo.kch42.net](http://todo.kch42.net/)
